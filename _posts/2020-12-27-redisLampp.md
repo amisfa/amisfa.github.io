@@ -11,7 +11,7 @@ sudo apt-get install php-redis build-essential libtool autoconf unzip wget mloca
 
 
 
-You can use each redis version insted redis-5.3.2.tgz, check here:[pecl.php.net](https://pecl.php.net/package/redis)
+You can use each redis version instead redis-5.3.2.tgz, check here:[pecl.php.net](https://pecl.php.net/package/redis)
 
 then you must download redis-5.3.2.tgz with this command:
 ```markdown
