@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HOW TO INSTALL REDIS EXTENSION ON LAMPP (UBUNTU)
+title: how to install redis extension on lampp (UBUNTU)
 ---
 
 First you should run these commands in terminal and install these packages:
