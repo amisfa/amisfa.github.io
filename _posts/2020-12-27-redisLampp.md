@@ -1,9 +1,9 @@
 ---
 layout: post
-title: how to install redis extension on lampp (UBUNTU)
+title: How to Install Redis Extension on LAMPP (Ubuntu)
 ---
 
-First you should run these commands in terminal and install these packages:
+First, run these commands in the terminal to update packages and install the required tools:
 ```markdown
 sudo apt-get update
 sudo apt-get install php-redis build-essential libtool autoconf unzip wget mlocate
@@ -11,34 +11,35 @@ sudo apt-get install php-redis build-essential libtool autoconf unzip wget mloca
 
 
 
-You can use each redis version instead redis-5.3.2.tgz, check here:[pecl.php.net](https://pecl.php.net/package/redis)
+You can use any Redis extension version instead of redis-5.3.2.tgz. Check available versions here:[pecl.php.net](https://pecl.php.net/package/redis)
 
-then you must download redis-5.3.2.tgz with this command:
+Then download redis-5.3.2.tgz with this command:
+
 ```markdown
 wget https://pecl.php.net/get/redis-5.3.2.tgz
 ```
 
-Get the location file with this command:
+Find the file location with:
+
 ```markdown
 locate redis-5.3.2.tgz
 ```
 
-
-If "locate" can't found your package link you must update database of "locate" with this command(By default it is updated once in a day):
+If locate cannot find the package, update its database (by default it is updated once a day):
 ```markdown
 sudo updatedb
 ```
 
-Now get link and go to the file directory(you can save this file anywhere you want, we suppose file in this link : /home/user/Downloads/lampp_extensions/redis-5.3.2.tgz
-):
+Go to the directory where the file is saved (for example, we assume the file is at /home/user/Downloads/lampp_extensions):
+
 ```markdown
 cd /home/user/Downloads/lampp_extensions
 ```
-Now you should extract file
+Extract the archive:
 ```markdown
 tar xzf redis-5.3.2.tgz
 ```
-Then run:
+Then build and install the extension:
 ```markdown
 cd redis-5.3.2
 phpize
@@ -46,26 +47,26 @@ phpize
 make
 sudo make install
 ```
-###TIP:if you have access denied when using "make install" you should use "sudo make install"
+###Tip: If you get "access denied" when running make install, use sudo make install.
 
-Finally add below line to /opt/lampp/etc/php.ini
+Finally, add the following line to /opt/lampp/etc/php.ini:
 ```markdown
 extension="redis.so"
 ```
 
-Restart your xampp with this command:
+Restart XAMPP / LAMPP:
 ```markdown
 sudo /opt/lampp/lampp restart
 ```
-And search redis with ctrl+f in this page:
+Open your PHP info page and search for redis (Ctrl+F):
 ```markdown
 localhost/phpinfo.php
 ```
 
-congratulations you could add redis extension...
+Congratulations — the Redis extension should now be installed.
 
-if you have problem, you can send it me:
+If you have any problem, you can send it to me at:
 ```markdown
 amisfaking@gmail.com
 ```
-bye bye
+Bye!
