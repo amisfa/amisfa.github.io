@@ -22,7 +22,7 @@ This guide explains step-by-step and completely practically how to set up and us
 
 ## Installing and Setting Up Redis
 
-```bash
+```markdown
 sudo apt update
 sudo apt install redis-server
 sudo systemctl enable redis-server
@@ -30,7 +30,7 @@ sudo systemctl start redis-server
 ```
 
 Check status:
-```bash
+```markdown
 redis-cli ping
 # Should return PONG
 ```
@@ -39,7 +39,7 @@ redis-cli ping
 
 **Warning**: The `php-redis` package from Ubuntu repositories is not compatible with LAMPP's custom PHP. Be sure to use PECL:
 
-```bash
+```markdown
 # Install necessary tools for compilation
 sudo apt install build-essential autoconf
 
@@ -51,25 +51,25 @@ If prompted, accept the default options.
 
 Then add the following line to the `/opt/lampp/etc/php.ini` file:
 
-```ini
+```markdown
 extension=redis.so
 ```
 
 Restart LAMPP:
 
-```bash
+```markdown
 sudo /opt/lampp/lampp restart
 ```
 
 Check successful installation:
-```bash
+```markdown
 /opt/lampp/bin/php -m | grep redis
 # Should display redis
 ```
 
 If for any reason PECL doesn't work, you can use the Predis library (Pure PHP):
 
-```bash
+```markdown
 composer require predis/predis
 ```
 
@@ -77,7 +77,7 @@ composer require predis/predis
 
 Create the file `test_redis.php`:
 
-```php
+```markdown
 <?php
 $redis = new Redis();
 $redis->pconnect('127.0.0.1', 6379);
@@ -87,13 +87,13 @@ echo $redis->ping() === '+PONG' ? 'Connection successful!' : 'Connection error';
 
 Run:
 
-```bash
+```markdown
 /opt/lampp/bin/php test_redis.php
 ```
 
 ## Implementing Publisher (Sender)
 
-```php
+```markdown
 <?php
 // publisher.php
 $redis = new Redis();
@@ -115,7 +115,7 @@ echo "Message sent ($sent subscribers received it)\n";
 
 ## Implementing Subscriber (Receiver)
 
-```php
+```markdown
 <?php
 // subscriber.php
 $redis = new Redis();
@@ -146,19 +146,19 @@ $redis->subscribe(['notifications'], $callback);
 
 Running subscriber in the background:
 
-```bash
+```markdown
 nohup /opt/lampp/bin/php /path/to/subscriber.php > /dev/null 2>&1 &
 ```
 
 Or better yet with **Supervisor** (final recommendation):
 
-```bash
+```markdown
 sudo apt install supervisor
 ```
 
 Configuration file:
 
-```ini
+```markdown
 # /etc/supervisor/conf.d/redis-notifications.conf
 [program:redis-notifications]
 command=/opt/lampp/bin/php /path/to/your/project/subscriber.php
@@ -172,7 +172,7 @@ stderr_logfile=/var/log/redis-notifications.err.log
 
 Apply changes:
 
-```bash
+```markdown
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start redis-notifications
@@ -180,7 +180,7 @@ sudo supervisorctl start redis-notifications
 
 ## Integration into LAMPP Application (Real Example)
 
-```php
+```markdown
 // send_notification.php (in your app's htdocs)
 function sendNotification(int $userId, string $title, string $body): void
 {
@@ -205,14 +205,14 @@ sendNotification(123, 'New message', 'User Ali sent you a message');
 ## Security Tips and Optimization for LAMPP
 
 1. Bind Redis only to localhost:
-   ```conf
+   ```markdown
    # /etc/redis/redis.conf
    bind 127.0.0.1
    requirepass YourStrongPasswordHere
    ```
 
 2. Disable dangerous commands:
-   ```conf
+   ```markdown
    rename-command CONFIG ""
    rename-command FLUSHALL ""
    rename-command FLUSHDB ""

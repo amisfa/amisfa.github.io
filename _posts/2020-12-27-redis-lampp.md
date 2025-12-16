@@ -9,8 +9,6 @@ sudo apt-get update
 sudo apt-get install php-redis build-essential libtool autoconf unzip wget mlocate
 ```
 
-
-
 You can use any Redis extension version instead of redis-5.3.2.tgz. Check available versions here:[pecl.php.net](https://pecl.php.net/package/redis)
 
 Then download redis-5.3.2.tgz with this command:
