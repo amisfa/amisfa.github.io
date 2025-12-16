@@ -17,19 +17,7 @@ avatar: https://avatars2.githubusercontent.com/u/45833172?s=460&u=11384fb2d3605e
 
 # Includes an icon in the footer for each username you enter
 footer-links:
-  dribbble:
   email: amisfaking@gmail.com
-  facebook:
-  flickr:
-  github: amisfa
-  instagram: amisfaking
-  linkedin:
-  pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: amisfaking
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
 
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
