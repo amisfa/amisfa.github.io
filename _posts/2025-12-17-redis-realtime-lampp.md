@@ -3,7 +3,7 @@ layout: post
 title: Implementing Redis Pub/Sub for Real-Time Notifications in PHP Applications on LAMPP (XAMPP for Linux)
 ---
 
-## Introduction
+ Introduction
 
 In today's web development world, real-time notifications (Real-Time Notifications) are one of the most important features for creating an engaging user experience. Redis, with its lightweight and ultra-fast Publish/Subscribe (Pub/Sub) system, is one of the best options for implementing this capability in a local development environment like **LAMPP** (i.e., XAMPP on Linux/Ubuntu).
 
@@ -11,7 +11,7 @@ This guide explains step-by-step and completely practically how to set up and us
 
 > Important Note: Redis Pub/Sub does not store messages. If the subscriber is not active at the time of publishing, the message is lost. For stable needs, use Redis Lists, Streams, or other message queues alongside Pub/Sub.
 
-## Prerequisites
+ Prerequisites
 
 - Operating System **Ubuntu** (or any Debian-based distribution)
 - **LAMPP** (XAMPP for Linux) installed (default path: `/opt/lampp`)
@@ -20,7 +20,7 @@ This guide explains step-by-step and completely practically how to set up and us
 - Root or sudo access
 - Multiple terminals for simultaneous testing of publisher and subscriber
 
-## Installing and Setting Up Redis
+ Installing and Setting Up Redis
 
 ```markdown
 sudo apt update
@@ -35,7 +35,7 @@ redis-cli ping
 # Should return PONG
 ```
 
-## Installing phpredis Extension for LAMPP's PHP Version
+ Installing phpredis Extension for LAMPP's PHP Version
 
 **Warning**: The `php-redis` package from Ubuntu repositories is not compatible with LAMPP's custom PHP. Be sure to use PECL:
 
@@ -73,7 +73,7 @@ If for any reason PECL doesn't work, you can use the Predis library (Pure PHP):
 composer require predis/predis
 ```
 
-## Initial Connection Test
+ Initial Connection Test
 
 Create the file `test_redis.php`:
 
@@ -91,7 +91,7 @@ Run:
 /opt/lampp/bin/php test_redis.php
 ```
 
-## Implementing Publisher (Sender)
+ Implementing Publisher (Sender)
 
 ```markdown
 <?php
@@ -113,7 +113,7 @@ echo "Message sent ($sent subscribers received it)\n";
 ?>
 ```
 
-## Implementing Subscriber (Receiver)
+ Implementing Subscriber (Receiver)
 
 ```markdown
 <?php
@@ -178,7 +178,7 @@ sudo supervisorctl update
 sudo supervisorctl start redis-notifications
 ```
 
-## Integration into LAMPP Application (Real Example)
+ Integration into LAMPP Application (Real Example)
 
 ```markdown
 // send_notification.php (in your app's htdocs)
@@ -202,7 +202,7 @@ function sendNotification(int $userId, string $title, string $body): void
 sendNotification(123, 'New message', 'User Ali sent you a message');
 ```
 
-## Security Tips and Optimization for LAMPP
+ Security Tips and Optimization for LAMPP
 
 1. Bind Redis only to localhost:
    ```markdown
@@ -222,7 +222,7 @@ sendNotification(123, 'New message', 'User Ali sent you a message');
 
 4. For large projects, use **Swoole**, **ReactPHP**, or **RoadRunner** instead of CLI PHP.
 
-## Delivering Notifications to the Browser (Frontend)
+ Delivering Notifications to the Browser (Frontend)
 
 Common methods:
 - Ratchet (Pure PHP WebSocket) + Redis subscriber
@@ -230,7 +230,7 @@ Common methods:
 - Server-Sent Events (SSE) with PHP
 - Long polling (only for testing)
 
-## Conclusion
+ Conclusion
 
 By using Redis Pub/Sub in the **LAMPP** environment on Ubuntu, you can easily build a powerful real-time notification system without the need for constant polling. This solution:
 
