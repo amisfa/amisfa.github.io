@@ -11,7 +11,9 @@ In today's web development world, real-time notifications (Real-Time Notificatio
 
 This guide explains step-by-step and completely practically how to set up and use Redis Pub/Sub in PHP applications running on **LAMPP**.
 
-> Important Note: Redis Pub/Sub does not store messages. If the subscriber is not active at the time of publishing, the message is lost. For stable needs, use Redis Lists, Streams, or other message queues alongside Pub/Sub.
+```markdown
+Important Note: Redis Pub/Sub does not store messages. If the subscriber is not active at the time of publishing, the message is lost. For stable needs, use Redis Lists, Streams, or other message queues alongside Pub/Sub.
+```
 
  Prerequisites
 
