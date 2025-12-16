@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Implementing Redis Pub/Sub for Real-Time Notifications in PHP Applications on LAMPP (XAMPP for Linux)
+date: 2025-12-17
+categories: [php, redis, realtime]
 ---
 
  Introduction
