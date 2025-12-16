@@ -4,9 +4,7 @@ title: Implementing Redis Pub/Sub for Real-Time Notifications in PHP Application
 date: 2025-12-16
 categories: [php, redis, realtime]
 ---
-
  Introduction
-
 In today's web development world, real-time notifications (Real-Time Notifications) are one of the most important features for creating an engaging user experience. Redis, with its lightweight and ultra-fast Publish/Subscribe (Pub/Sub) system, is one of the best options for implementing this capability in a local development environment like **LAMPP** (i.e., XAMPP on Linux/Ubuntu).
 
 This guide explains step-by-step and completely practically how to set up and use Redis Pub/Sub in PHP applications running on **LAMPP**.
